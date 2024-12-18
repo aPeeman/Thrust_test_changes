@@ -1,6 +1,5 @@
 #include <iostream>
 #include <unittest/unittest.h>
-#include <thrust/memory.h>
 #include <thrust/sort.h>
 #include <thrust/memory.h>
 #include <thrust/pair.h>

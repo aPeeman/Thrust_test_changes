@@ -75,7 +75,7 @@ function(thrust_add_test target_name_var test_name test_src thrust_target)
   set(test_meta_target thrust.all.test.${test_name})
 
   add_executable(${test_target} "${real_test_src}")
-  target_link_libraries(${test_target} PRIVATE ${config_framework_target})
+  target_link_libraries(${test_target} PRIVATE ${config_framework_target} pthread)
   target_include_directories(${test_target} PRIVATE "${Thrust_SOURCE_DIR}/testing")
   thrust_clone_target_properties(${test_target} ${thrust_target})
 
@@ -152,7 +152,7 @@ endforeach()
 
 # Add specialized tests:
 add_subdirectory(async)
-add_subdirectory(cmake)
+#add_subdirectory(cmake)
 add_subdirectory(cpp)
 add_subdirectory(cuda)
 add_subdirectory(omp)

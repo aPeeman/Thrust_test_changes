@@ -8,7 +8,11 @@ void verify_stream()
 {
   auto exec = thrust::device;
   auto stream = thrust::cuda_cub::stream(exec);
+#ifdef CUDA_API_PER_THREAD_DEFAULT_STREAM
   ASSERT_EQUAL(stream, cudaStreamPerThread);
+#else
+  ASSERT_EQUAL(stream, (cudaStream_t)cudaStreamDefault);
+#endif
 }
 
 void TestPerThreadDefaultStream()
